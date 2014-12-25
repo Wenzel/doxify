@@ -88,6 +88,10 @@ magnifyDoxyfile ()
     setDoxyfileVariable "$doxyfile_path" 'HTML_DYNAMIC_SECTIONS' 'YES'
     setDoxyfileVariable "$doxyfile_path" 'GENERATE_TREEVIEW' 'YES'
     setDoxyfileVariable "$doxyfile_path" 'MACRO_EXPANSION' 'YES'
+    # Multi-Threading
+    #-------------------
+    setDoxyfileVariable "$doxyfile_path" 'DOT_NUM_THREADS' "$(grep -c processor /proc/cpuinfo)"
+    
     # is dot present ?
     # (disable script safety first)
     set +e
